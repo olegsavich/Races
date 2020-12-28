@@ -4,7 +4,6 @@ void mx_printint(int n) {
     int count = 0;
     int num = n;
     int degree = 1;
-
     if(n < 0) {
         mx_printchar('-');
             n = n * (-1);

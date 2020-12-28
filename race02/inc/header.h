@@ -1,14 +1,14 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-
+//Libraries
 #include <stdbool.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
 
-
+//Technical functions 
 int mx_strlen(const char *s);
 void mx_printchar(char c);
 void mx_printint(int n);
@@ -22,13 +22,12 @@ char *mx_strnew(const int size);
 char *mx_strtrim(const char *str);
 void mx_printerr(const char *s);
 int mx_atoi(const char *str);
+char *mx_file_to_str(const char *filename);
+
+//Functions for solving maze
 char **cmatrix (char *res, int *ryad, int *stovb);
 int **matrix (char *res, int *ryad, int *stovb);
-char *mx_file_to_str(const char *filename);
 int max(int **grid,int ax, int ay,int He, int Wi, char **final);
 bool lee(int **grid,int ax, int ay, int bx, int by,int He, int Wi, int *len,int *px,int *py);
-
-
-
 
 #endif

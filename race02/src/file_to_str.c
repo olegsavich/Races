@@ -5,12 +5,11 @@ char *mx_file_to_str(const char *filename) {
      char s[1];
      int n = read(file , s, sizeof(s));
      int count = 0;
-
      while(n > 0) {
          if (s[0] == '#' || s[0] == '.' || s[0] == '\n' ){
              ++count;
          }
-         n = read (file, s, sizeof(s));
+         n = read(file, s, sizeof(s));
      }
      close(file);
      file = open(filename,O_RDONLY);

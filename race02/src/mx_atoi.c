@@ -4,7 +4,6 @@ int mx_atoi(const char *str) {
     int res = 0;
     int count = 0;
     int flag = 1;
-
     for (int i = 0; str[i] != '\0'; ++i) {
         if (mx_isdigit(str[i])) {
             res *= 10;

@@ -4,16 +4,13 @@ char **cmatrix (char *res, int *ryad, int *stovb) {
     int i;
     int s = 0;
     int r = 0;
-
     for (i = 0; res[i] != '\0'; ++i) {
         if (res[i] == '\n') {
            ++r;
         }
     }
     s = (i - r) / r;
-
     char **mat = (char **)malloc(r * sizeof(char*));
-
     for (int i = 0; i < r; i++) {
         mat[i] = (char*)malloc(s * sizeof(char*));
     }
