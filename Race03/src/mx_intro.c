@@ -1,10 +1,10 @@
 #include "header.h"
 
-void intro_1() {
-    char *text1 = "Wake up , Neo..";
+static void intro_1() {
+    char *intro1 = "Wake up , Neo..";
     refresh();
-    for(unsigned int i = 0; i < mx_strlen(text1); i++){        
-        mvaddch(5, i + 4, text1[i] | COLOR_PAIR(1));
+    for(unsigned int i = 0; i < mx_strlen(intro1); i++){        
+        mvaddch(5, i + 4, intro1[i] | COLOR_PAIR(2));
         refresh();
         usleep(100000);
     }
@@ -13,10 +13,10 @@ void intro_1() {
     refresh();
 }
 
-void intro_2() {
-    char *text2 = "The Matrix has you..";
-    for(unsigned int i = 0; i < mx_strlen(text2); i++){
-        mvaddch(5, i + 4, text2[i] | COLOR_PAIR(1));
+static void intro_2() {
+    char *intro2 = "The Matrix has you..";
+    for(unsigned int i = 0; i < mx_strlen(intro2); i++){
+        mvaddch(5, i + 4, intro2[i] | COLOR_PAIR(2));
         refresh();
         usleep(100000);
     }
@@ -25,10 +25,10 @@ void intro_2() {
     refresh();
 }
 
-void intro_3() {
-    char *text3 = "Follow the white rabbit";
-    for(unsigned int i = 0; i < mx_strlen(text3); i++){      
-        mvaddch(5, i + 4, text3[i] | COLOR_PAIR(1));
+static void intro_3() {
+    char *intro3 = "Follow the white rabbit";
+    for(unsigned int i = 0; i < mx_strlen(intro3); i++){      
+        mvaddch(5, i + 4, intro3[i] | COLOR_PAIR(2));
         refresh();
         usleep(100000);
     }
@@ -37,10 +37,10 @@ void intro_3() {
     refresh();
 }
 
-void intro_4() {
-    char *text4 = "Knock, knock, Neo";
-    for(unsigned int i = 0; i < mx_strlen(text4); i++){      
-        mvaddch(5, i + 4, text4[i] | COLOR_PAIR(1));
+static void intro_4() {
+    char *intro4 = "Knock, knock, Neo";
+    for(unsigned int i = 0; i < mx_strlen(intro4); i++){      
+        mvaddch(5, i + 4, intro4[i] | COLOR_PAIR(2));
         refresh();
         usleep(100000);
     }
