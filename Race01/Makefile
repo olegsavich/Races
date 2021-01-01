@@ -1,23 +1,20 @@
-CC = clang
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
-FUNC = src/*.c
+SRCS = src/*.c
 OBJS = obj/*.o
-OBJS_FOLDER = obj
-EXEC = minilibmx.a
 
-all: clean MINILIBMX
+all: MINILIBMX
 
 MINILIBMX:
-	@mkdir $(OBJS_FOLDER)
-	@cd $(OBJS_FOLDER) && $(CC) -c ../$(FUNC)
-	@ar rcs $(EXEC) $(OBJS)
-	@$(CC) $(CFLAGS) -o part_of_the_matrix $(EXEC)
+	@mkdir obj
+	@clang -c $(SRCS)
+	@mv *.o obj
+	@ar rcs minilibmx.a $(OBJS)
+	@clang $(CFLAGS) -o part_of_the_matrix minilibmx.a
 
 clean: 
-	@rm -rf $(EXEC) $(OBJS_FOLDER)
+	@rm -rf minilibmx.a obj
 
-uninstall:
-	@rm -rf $(EXEC) $(OBJS_FOLDER)
+uninstall: clean
 	@rm -rf part_of_the_matrix
 
-reinstall: all
+reinstall: uninstall MINILIBMX

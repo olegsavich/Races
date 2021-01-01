@@ -7,11 +7,9 @@ int mx_pow(int num, int pow) {
     return num;
 }
 
-#include <stdio.h>
-
 int main(int argc, char *argv[]) {
     if (argc != 5) {
-        write(2, "usage: ./part_of_the_matrix [operand1] [operation] [operand2] [result]\n", 71);
+        write(2, "usage: ./part_of_the_matrix [operand1] [operation] [operand2] [result]\n", 72);
         return -1;
     }
     int error = 0;
@@ -137,7 +135,8 @@ int main(int argc, char *argv[]) {
             operation = DIV;
             break;
         default:
-            error = INVALID_OPERATION;
+            if (mx_strlen(argv[2]) != 1)
+                error = INVALID_OPERATION;
             break;
     }
 
