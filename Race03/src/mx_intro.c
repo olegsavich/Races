@@ -1,4 +1,4 @@
-#include "header.h"
+#include "../inc/header.h"
 
 static void intro_1() {
     char *intro1 = "Wake up , Neo..";

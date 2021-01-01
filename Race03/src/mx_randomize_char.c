@@ -1,4 +1,4 @@
-#include "header.h"
+#include "../inc/header.h"
 
 void mx_randomize_char(int maxX, int maxY, int color, int arr[], int lenght[], int start[]) {
     for (int i = 0; i < maxX; i++) {       

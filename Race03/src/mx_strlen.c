@@ -1,4 +1,4 @@
-#include "header.h"
+#include "../inc/header.h"
 
 unsigned int mx_strlen(const char *s) 
 {
