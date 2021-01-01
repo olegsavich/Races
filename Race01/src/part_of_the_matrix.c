@@ -7,6 +7,8 @@ int mx_pow(int num, int pow) {
     return num;
 }
 
+#include <stdio.h>
+
 int main(int argc, char *argv[]) {
     if (argc != 5) {
         write(2, "usage: ./part_of_the_matrix [operand1] [operation] [operand2] [result]\n", 71);
@@ -14,7 +16,11 @@ int main(int argc, char *argv[]) {
     }
     int error = 0;
 
-    // return  esli est' bol'she odnogo ne-probela
+    argv[1] = mx_delete_extra_spaces(argv[1]);
+    argv[2] = mx_delete_extra_spaces(argv[2]);
+    argv[3] = mx_delete_extra_spaces(argv[3]);
+    argv[4] = mx_delete_extra_spaces(argv[4]);
+
     char c_operation = '\0';
     for (int i = 0; i < (int)mx_strlen(argv[2]); i++) {
         if (!mx_isspace(argv[2][i]) && !c_operation)
@@ -131,8 +137,8 @@ int main(int argc, char *argv[]) {
             operation = DIV;
             break;
         default:
-            if (error < INVALID_OPERATION)
-                error = INVALID_OPERATION;
+            error = INVALID_OPERATION;
+            break;
     }
 
     if (!error) {
@@ -165,58 +171,42 @@ int main(int argc, char *argv[]) {
 
                     if (operation == ADD) {
                         if (a + b == c) {
-                            write(1, a_str, a_length);
-                            mx_printchar(' ');
-                            mx_printchar('+');
-                            mx_printchar(' ');
-                            write(1, b_str, b_length);
-                            mx_printchar(' ');
-                            mx_printchar('=');
-                            mx_printchar(' ');
-                            write(1, c_str, c_length);
+                            mx_printstr(a_str);
+                            mx_printstr(" + ");
+                            mx_printstr(b_str);
+                            mx_printstr(" = ");
+                            mx_printstr(c_str);
                             mx_printchar('\n');
                         }
                     }
                     else if (operation == SUB) {
                         if (a - b == c) {
-                            write(1, a_str, a_length);
-                            mx_printchar(' ');
-                            mx_printchar('-');
-                            mx_printchar(' ');
-                            write(1, b_str, b_length);
-                            mx_printchar(' ');
-                            mx_printchar('=');
-                            mx_printchar(' ');
-                            write(1, c_str, c_length);
+                            mx_printstr(a_str);
+                            mx_printstr(" - ");
+                            mx_printstr(b_str);
+                            mx_printstr(" = ");
+                            mx_printstr(c_str);
                             mx_printchar('\n');
                         }
                     }
                     else if (operation == MUL) {
                         if (a * b == c) {
-                            write(1, a_str, a_length);
-                            mx_printchar(' ');
-                            mx_printchar('*');
-                            mx_printchar(' ');
-                            write(1, b_str, b_length);
-                            mx_printchar(' ');
-                            mx_printchar('=');
-                            mx_printchar(' ');
-                            write(1, c_str, c_length);
+                            mx_printstr(a_str);
+                            mx_printstr(" * ");
+                            mx_printstr(b_str);
+                            mx_printstr(" = ");
+                            mx_printstr(c_str);
                             mx_printchar('\n');
                         }
                     }
                     else if (operation == DIV) {
                         if (b != 0)
                             if (a / b == c) {
-                                write(1, a_str, a_length);
-                                mx_printchar(' ');
-                                mx_printchar('/');
-                                mx_printchar(' ');
-                                write(1, b_str, b_length);
-                                mx_printchar(' ');
-                                mx_printchar('=');
-                                mx_printchar(' ');
-                                write(1, c_str, c_length);
+                                mx_printstr(a_str);
+                                mx_printstr(" / ");
+                                mx_printstr(b_str);
+                                mx_printstr(" = ");
+                                mx_printstr(c_str);
                                 mx_printchar('\n');
                             }
                     }
@@ -245,22 +235,22 @@ int main(int argc, char *argv[]) {
             case 4:
                 write(2, "Invalid operation: ", 19);
                 write(2, argv[2], mx_strlen(argv[2]));
-                mx_printchar('\n');
+                write(2, "\n", 1);
                 break;
             case 3:
                 write(2, "Invalid operand: ", 17);
                 write(2, argv[3], mx_strlen(argv[3]));
-                mx_printchar('\n');
+                write(2, "\n", 1);
                 break;
             case 2:
                 write(2, "Invalid operand: ", 17);
                 write(2, argv[1], mx_strlen(argv[1]));
-                mx_printchar('\n');
+                write(2, "\n", 1);
                 break;
             case 1:
                 write(2, "Invalid result: ", 16);
                 write(2, argv[4], mx_strlen(argv[4]));
-                mx_printchar('\n');
+                write(2, "\n", 1);
                 break;
         }
 }

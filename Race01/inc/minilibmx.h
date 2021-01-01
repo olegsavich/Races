@@ -23,6 +23,7 @@ bool mx_isspace(char c);
 int mx_atoi(const char*);
 void mx_printchar(char);
 void mx_printint(int);
+void mx_printstr(const char *s);
 int mx_strncmp(const char*, const char*, int);
 unsigned long mx_strlen(const char*);
 char *mx_itoa(int);
@@ -33,5 +34,6 @@ void mx_str_reverse(char*);
 char *mx_strtrim(const char*);
 char *mx_strndup(const char*, int);
 char *mx_strncpy(char*, const char*, int);
+char *mx_delete_extra_spaces(const char *str);
 
 #endif

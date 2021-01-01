@@ -8,15 +8,16 @@ EXEC = minilibmx.a
 all: clean MINILIBMX
 
 MINILIBMX:
-	mkdir $(OBJS_FOLDER)
-	cd $(OBJS_FOLDER) && $(CC) -c ../$(FUNC)
-	ar rcs $(EXEC) $(OBJS)
-	$(CC) $(CFLAGS) -o part_of_the_matrix $(EXEC)
+	@mkdir $(OBJS_FOLDER)
+	@cd $(OBJS_FOLDER) && $(CC) -c ../$(FUNC)
+	@ar rcs $(EXEC) $(OBJS)
+	@$(CC) $(CFLAGS) -o part_of_the_matrix $(EXEC)
 
 clean: 
-	rm -rf $(EXEC) $(OBJS_FOLDER)
+	@rm -rf $(EXEC) $(OBJS_FOLDER)
 
 uninstall:
-	rm -rf  $(EXEC) $(OBJS_FOLDER)
+	@rm -rf $(EXEC) $(OBJS_FOLDER)
+	@rm -rf part_of_the_matrix
 
 reinstall: all
